@@ -1,0 +1,19 @@
+{
+  "extends": [
+    "stylelint-config-standard"
+  ],
+  "rules": {
+    "max-empty-lines": 1,
+    "unit-allowed-list": [
+      "px",
+      "em",
+      "rem",
+      "%",
+      "s",
+      "ms",
+      "vh",
+      "vw",
+      "deg"
+    ]
+  }
+}
