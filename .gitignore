@@ -1,0 +1,14 @@
+# Dependency directories
+node_modules/
+
+# Cache directories
+.cache
+
+# VSCode
+.vscode
+
+# Gatsby
+public/
+
+# MacOS
+.DS_Store
