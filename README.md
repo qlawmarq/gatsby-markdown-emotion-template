@@ -1,5 +1,7 @@
 # gatsby-starter-emotion-typescript
 
+[![codebeat badge](https://codebeat.co/badges/0a226405-321c-4c1c-ba6e-17dbe6ed0666)](https://codebeat.co/projects/github-com-yopinoji-gatsby-starter-emotion-typescript-main)
+
 Gatsby template for Blog, Web Site, CMS.
 
 ## Integrated Libraries
