@@ -73,8 +73,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-eslint`,
       options: {
-        test: /\.ts$|\.tsx$/,
-        exclude: /(node_modules|.cache|public)/,
+        exclude: ['node_modules', '.cache', 'public'],
+        extensions: ['ts', 'tsx', 'js'],
         stages: ["develop", "build-javascript"],
         options: {
           emitWarning: true,
