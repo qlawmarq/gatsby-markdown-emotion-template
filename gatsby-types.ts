@@ -2065,6 +2065,8 @@ export type QueryAllDirectoryArgs = {
 export type QuerySiteArgs = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2202,6 +2204,8 @@ export type QueryAllSitePluginArgs = {
 export type Site = Node & {
   buildTime?: Maybe<Scalars['Date']>;
   siteMetadata?: Maybe<SiteSiteMetadata>;
+  port?: Maybe<Scalars['Int']>;
+  host?: Maybe<Scalars['String']>;
   polyfill?: Maybe<Scalars['Boolean']>;
   pathPrefix?: Maybe<Scalars['String']>;
   id: Scalars['ID'];
@@ -2413,6 +2417,8 @@ export type SiteFieldsEnum =
   | 'siteMetadata___copyright'
   | 'siteMetadata___lang'
   | 'siteMetadata___charSet'
+  | 'port'
+  | 'host'
   | 'polyfill'
   | 'pathPrefix'
   | 'id'
@@ -2505,6 +2511,8 @@ export type SiteFieldsEnum =
 export type SiteFilterInput = {
   buildTime?: Maybe<DateQueryOperatorInput>;
   siteMetadata?: Maybe<SiteSiteMetadataFilterInput>;
+  port?: Maybe<IntQueryOperatorInput>;
+  host?: Maybe<StringQueryOperatorInput>;
   polyfill?: Maybe<BooleanQueryOperatorInput>;
   pathPrefix?: Maybe<StringQueryOperatorInput>;
   id?: Maybe<StringQueryOperatorInput>;
@@ -2732,6 +2740,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___head'
   | 'pluginCreator___pluginOptions___anonymize'
   | 'pluginCreator___pluginOptions___respectDNT'
+  | 'pluginCreator___pluginOptions___exclude'
   | 'pluginCreator___pluginOptions___pageTransitionDelay'
   | 'pluginCreator___pluginOptions___name'
   | 'pluginCreator___pluginOptions___path'
@@ -2751,6 +2760,7 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___crossOrigin'
   | 'pluginCreator___pluginOptions___include_favicon'
   | 'pluginCreator___pluginOptions___cacheDigest'
+  | 'pluginCreator___pluginOptions___extensions'
   | 'pluginCreator___pluginOptions___stages'
   | 'pluginCreator___pluginOptions___options___emitWarning'
   | 'pluginCreator___pluginOptions___options___failOnError'
@@ -2998,6 +3008,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___head'
   | 'pluginOptions___anonymize'
   | 'pluginOptions___respectDNT'
+  | 'pluginOptions___exclude'
   | 'pluginOptions___pageTransitionDelay'
   | 'pluginOptions___name'
   | 'pluginOptions___path'
@@ -3017,6 +3028,7 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___crossOrigin'
   | 'pluginOptions___include_favicon'
   | 'pluginOptions___cacheDigest'
+  | 'pluginOptions___extensions'
   | 'pluginOptions___stages'
   | 'pluginOptions___options___emitWarning'
   | 'pluginOptions___options___failOnError'
@@ -3167,6 +3179,7 @@ export type SitePluginPluginOptions = {
   head?: Maybe<Scalars['Boolean']>;
   anonymize?: Maybe<Scalars['Boolean']>;
   respectDNT?: Maybe<Scalars['Boolean']>;
+  exclude?: Maybe<Array<Maybe<Scalars['String']>>>;
   pageTransitionDelay?: Maybe<Scalars['Int']>;
   name?: Maybe<Scalars['String']>;
   path?: Maybe<Scalars['String']>;
@@ -3186,6 +3199,7 @@ export type SitePluginPluginOptions = {
   crossOrigin?: Maybe<Scalars['String']>;
   include_favicon?: Maybe<Scalars['Boolean']>;
   cacheDigest?: Maybe<Scalars['String']>;
+  extensions?: Maybe<Array<Maybe<Scalars['String']>>>;
   stages?: Maybe<Array<Maybe<Scalars['String']>>>;
   options?: Maybe<SitePluginPluginOptionsOptions>;
   base64Width?: Maybe<Scalars['Int']>;
@@ -3239,6 +3253,7 @@ export type SitePluginPluginOptionsFilterInput = {
   head?: Maybe<BooleanQueryOperatorInput>;
   anonymize?: Maybe<BooleanQueryOperatorInput>;
   respectDNT?: Maybe<BooleanQueryOperatorInput>;
+  exclude?: Maybe<StringQueryOperatorInput>;
   pageTransitionDelay?: Maybe<IntQueryOperatorInput>;
   name?: Maybe<StringQueryOperatorInput>;
   path?: Maybe<StringQueryOperatorInput>;
@@ -3258,6 +3273,7 @@ export type SitePluginPluginOptionsFilterInput = {
   crossOrigin?: Maybe<StringQueryOperatorInput>;
   include_favicon?: Maybe<BooleanQueryOperatorInput>;
   cacheDigest?: Maybe<StringQueryOperatorInput>;
+  extensions?: Maybe<StringQueryOperatorInput>;
   stages?: Maybe<StringQueryOperatorInput>;
   options?: Maybe<SitePluginPluginOptionsOptionsFilterInput>;
   base64Width?: Maybe<IntQueryOperatorInput>;
