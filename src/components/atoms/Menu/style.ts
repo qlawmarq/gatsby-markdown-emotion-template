@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { colors, fontSize } from "@Constants/styles";
+import { colors, fontSize, breakpoints } from "@Constants/styles";
 
 export const style = css`
   .cf::before,
@@ -34,6 +34,9 @@ export const style = css`
     float: left;
     position: relative;
     transform: skewX(25deg);
+    @media (${breakpoints.TABLET}) {
+      float: none;
+    }
   }
 
   .menu a {
@@ -45,7 +48,7 @@ export const style = css`
 
   .menu > li > a {
     transform: skewX(-25deg);
-    padding: 1em 2em;
+    padding: 0.5rem 1rem;
   }
 
   /* Dropdown */

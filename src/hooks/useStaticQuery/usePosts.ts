@@ -17,7 +17,6 @@ export const usePosts: typeUsePosts = () => {
               frontmatter {
                 category
                 lang
-                cover
                 date
                 slug
                 tags

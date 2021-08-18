@@ -1,6 +1,5 @@
 ---
 title: "MARKDOWN TEST POST"
-cover: "2020-02-02-markdown-test/header.png"
 category: "Tech"
 lang: "ja"
 date: "2020-02-02"

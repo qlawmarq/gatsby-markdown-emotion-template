@@ -2,9 +2,9 @@ import { css } from "@emotion/react";
 import { colors, fontSize } from "@Constants/styles";
 
 export const postStyle = css`
+  padding: 1rem;
   .post-contents {
-    color: ${colors.Gray700};
-    padding-bottom: 1.5rem;
+    color: ${colors.Gray700};  
   }
 
   .post-contents img {

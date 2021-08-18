@@ -648,7 +648,6 @@ export type MarkdownRemarkTableOfContentsArgs = {
 
 export type MarkdownRemarkFrontmatter = {
   title?: Maybe<Scalars['String']>;
-  cover?: Maybe<Scalars['String']>;
   category?: Maybe<Scalars['String']>;
   lang?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['Date']>;
@@ -776,6 +775,8 @@ export type SitePluginPluginOptionsPluginsPluginOptions = {
 export type SitePluginPluginOptionsOptions = {
   emitWarning?: Maybe<Scalars['Boolean']>;
   failOnError?: Maybe<Scalars['Boolean']>;
+  extensions?: Maybe<Array<Maybe<Scalars['String']>>>;
+  exclude?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type SitePluginPluginOptionsFeeds = {
@@ -1274,7 +1275,6 @@ export type MarkdownRemarkFilterInput = {
 
 export type MarkdownRemarkFrontmatterFilterInput = {
   title?: Maybe<StringQueryOperatorInput>;
-  cover?: Maybe<StringQueryOperatorInput>;
   category?: Maybe<StringQueryOperatorInput>;
   lang?: Maybe<StringQueryOperatorInput>;
   date?: Maybe<DateQueryOperatorInput>;
@@ -1534,7 +1534,6 @@ export type FileFieldsEnum =
   | 'childrenMarkdownRemark'
   | 'childrenMarkdownRemark___id'
   | 'childrenMarkdownRemark___frontmatter___title'
-  | 'childrenMarkdownRemark___frontmatter___cover'
   | 'childrenMarkdownRemark___frontmatter___category'
   | 'childrenMarkdownRemark___frontmatter___lang'
   | 'childrenMarkdownRemark___frontmatter___date'
@@ -1596,7 +1595,6 @@ export type FileFieldsEnum =
   | 'childrenMarkdownRemark___internal___type'
   | 'childMarkdownRemark___id'
   | 'childMarkdownRemark___frontmatter___title'
-  | 'childMarkdownRemark___frontmatter___cover'
   | 'childMarkdownRemark___frontmatter___category'
   | 'childMarkdownRemark___frontmatter___lang'
   | 'childMarkdownRemark___frontmatter___date'
@@ -2506,6 +2504,8 @@ export type SitePluginPluginOptionsPluginsPluginOptionsFilterInput = {
 export type SitePluginPluginOptionsOptionsFilterInput = {
   emitWarning?: Maybe<BooleanQueryOperatorInput>;
   failOnError?: Maybe<BooleanQueryOperatorInput>;
+  extensions?: Maybe<StringQueryOperatorInput>;
+  exclude?: Maybe<StringQueryOperatorInput>;
 };
 
 export type SitePluginPluginOptionsFeedsFilterListInput = {
@@ -2781,6 +2781,8 @@ export type SitePageFieldsEnum =
   | 'pluginCreator___pluginOptions___stages'
   | 'pluginCreator___pluginOptions___options___emitWarning'
   | 'pluginCreator___pluginOptions___options___failOnError'
+  | 'pluginCreator___pluginOptions___options___extensions'
+  | 'pluginCreator___pluginOptions___options___exclude'
   | 'pluginCreator___pluginOptions___base64Width'
   | 'pluginCreator___pluginOptions___stripMetadata'
   | 'pluginCreator___pluginOptions___defaultQuality'
@@ -3086,7 +3088,6 @@ export type MarkdownRemarkEdge = {
 export type MarkdownRemarkFieldsEnum =
   | 'id'
   | 'frontmatter___title'
-  | 'frontmatter___cover'
   | 'frontmatter___category'
   | 'frontmatter___lang'
   | 'frontmatter___date'
@@ -3402,6 +3403,8 @@ export type SitePluginFieldsEnum =
   | 'pluginOptions___stages'
   | 'pluginOptions___options___emitWarning'
   | 'pluginOptions___options___failOnError'
+  | 'pluginOptions___options___extensions'
+  | 'pluginOptions___options___exclude'
   | 'pluginOptions___base64Width'
   | 'pluginOptions___stripMetadata'
   | 'pluginOptions___defaultQuality'
@@ -3632,7 +3635,7 @@ export type CategoryQueryVariables = Exact<{
 }>;
 
 
-export type CategoryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'siteUrl' | 'description' | 'author' | 'email' | 'image' | 'twitterId' | 'githubId' | 'googleAdSense' | 'copyright' | 'lang' | 'charSet'>> }>, allMarkdownRemark: { edges: Array<{ node: { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'category' | 'lang' | 'cover' | 'date' | 'slug' | 'tags' | 'title'>> } }> } };
+export type CategoryQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'siteUrl' | 'description' | 'author' | 'email' | 'image' | 'twitterId' | 'githubId' | 'googleAdSense' | 'copyright' | 'lang' | 'charSet'>> }>, allMarkdownRemark: { edges: Array<{ node: { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'category' | 'lang' | 'date' | 'slug' | 'tags' | 'title'>> } }> } };
 
 export type PagesQueryVariables = Exact<{
   slug: Scalars['String'];
@@ -3641,7 +3644,7 @@ export type PagesQueryVariables = Exact<{
 
 export type PagesQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'siteUrl' | 'description' | 'author' | 'email' | 'image' | 'twitterId' | 'githubId' | 'googleAdSense' | 'copyright' | 'lang' | 'charSet'>> }>, markdownRemark?: Maybe<(
     Pick<MarkdownRemark, 'html' | 'tableOfContents'>
-    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'category' | 'lang' | 'cover' | 'date' | 'slug' | 'tags' | 'title'>> }
+    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'category' | 'lang' | 'date' | 'slug' | 'tags' | 'title'>> }
   )> };
 
 export type PostsQueryVariables = Exact<{
@@ -3651,7 +3654,7 @@ export type PostsQueryVariables = Exact<{
 
 export type PostsQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'siteUrl' | 'description' | 'author' | 'email' | 'image' | 'twitterId' | 'githubId' | 'googleAdSense' | 'copyright' | 'lang' | 'charSet'>> }>, markdownRemark?: Maybe<(
     Pick<MarkdownRemark, 'html' | 'tableOfContents'>
-    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'category' | 'lang' | 'cover' | 'date' | 'slug' | 'tags' | 'title'>> }
+    & { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'category' | 'lang' | 'date' | 'slug' | 'tags' | 'title'>> }
   )> };
 
 export type TagQueryVariables = Exact<{
@@ -3659,7 +3662,7 @@ export type TagQueryVariables = Exact<{
 }>;
 
 
-export type TagQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'siteUrl' | 'description' | 'author' | 'email' | 'image' | 'twitterId' | 'githubId' | 'googleAdSense' | 'copyright' | 'lang' | 'charSet'>> }>, allMarkdownRemark: { edges: Array<{ node: { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'category' | 'lang' | 'cover' | 'date' | 'slug' | 'tags' | 'title'>> } }> } };
+export type TagQuery = { site?: Maybe<{ siteMetadata?: Maybe<Pick<SiteSiteMetadata, 'title' | 'siteUrl' | 'description' | 'author' | 'email' | 'image' | 'twitterId' | 'githubId' | 'googleAdSense' | 'copyright' | 'lang' | 'charSet'>> }>, allMarkdownRemark: { edges: Array<{ node: { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'category' | 'lang' | 'date' | 'slug' | 'tags' | 'title'>> } }> } };
 
 export type AllContentsQueryVariables = Exact<{ [key: string]: never; }>;
 
@@ -3684,7 +3687,7 @@ export type CategoriesQueryQuery = { allMarkdownRemark: { group: Array<Pick<Mark
 export type PostsQueryQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type PostsQueryQuery = { allMarkdownRemark: { edges: Array<{ node: { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'category' | 'lang' | 'cover' | 'date' | 'slug' | 'tags' | 'title'>> } }> } };
+export type PostsQueryQuery = { allMarkdownRemark: { edges: Array<{ node: { frontmatter?: Maybe<Pick<MarkdownRemarkFrontmatter, 'category' | 'lang' | 'date' | 'slug' | 'tags' | 'title'>> } }> } };
 
 export type SiteMetadataQueryQueryVariables = Exact<{ [key: string]: never; }>;
 

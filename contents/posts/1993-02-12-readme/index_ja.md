@@ -1,6 +1,5 @@
 ---
 title: "README"
-cover: "1993-02-12-readme/header.png"
 category: "Note"
 lang: "ja"
 date: "1993-02-12"
