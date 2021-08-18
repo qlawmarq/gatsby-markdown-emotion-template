@@ -49,11 +49,13 @@ const PostListing: React.FC<PropsType> = ({ data }) => {
             >
               <H2>{String(row.node.frontmatter?.title)}</H2>
               <p>{row.node.frontmatter?.date}</p>
-              <Badge>{row.node.frontmatter?.category}</Badge>
-              <div>
-                {row.node.frontmatter?.tags?.map((row, index) => (
-                  <Badge key={index}>{row}</Badge>
-                ))}
+              <div className="card-badge-area">
+                <Badge>{row.node.frontmatter?.category}</Badge>
+                <div>
+                  {row.node.frontmatter?.tags?.map((row, index) => (
+                    <Badge key={index}>{row}</Badge>
+                  ))}
+                </div>
               </div>
             </Card>
           </animated.div>
