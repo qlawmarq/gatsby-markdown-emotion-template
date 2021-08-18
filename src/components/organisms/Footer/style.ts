@@ -6,7 +6,7 @@ export const FooterStyle = css`
   color: ${colors.Gray100};
   background-color: ${colors.Gray700};
   margin: auto;
-  padding: 2rem 0;
+  padding: 1rem 0;
   display: flex;
   justify-content: center;
   align-items: center;
