@@ -235,7 +235,7 @@ export const style = css`
   box-shadow: 0 0 1rem 1rem ${colors.Gray50} inset;
   position: relative;
   margin: 1rem;
-  padding: 2rem;
+  padding: 1rem;
   opacity: 0.9;
   background-color: ${colors.Gray20};
   clip-path: polygon(

@@ -190,7 +190,6 @@ module.exports = {
                       frontmatter {
                         slug
                         category
-                        cover
                         date
                         tags
                         title

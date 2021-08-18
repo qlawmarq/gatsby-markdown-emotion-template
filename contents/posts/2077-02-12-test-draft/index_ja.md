@@ -1,6 +1,5 @@
 ---
 title: "This is draft post"
-cover: "2077-02-12-test-draft/header.png"
 category: "Tech"
 lang: "ja"
 date: "2077-02-12"

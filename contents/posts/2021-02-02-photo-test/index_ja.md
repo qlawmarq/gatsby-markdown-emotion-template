@@ -1,6 +1,5 @@
 ---
 title: "PHOTO TEST POST"
-cover: "2021-02-02-photo-test/header.png"
 category: "Tech"
 lang: "ja"
 date: "2021-02-02"

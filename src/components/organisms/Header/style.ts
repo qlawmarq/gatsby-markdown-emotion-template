@@ -10,7 +10,7 @@ export const HeaderStyle = css`
 
 export const TitleAreaStyle = css`
   margin: auto;
-  padding: 2rem;
+  padding: 1rem;
   height: 22rem;
   display: table;
   text-align: center;
