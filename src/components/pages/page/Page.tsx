@@ -17,6 +17,7 @@ const Post: React.FC<PropsType> = (props) => {
   const pageTitle = frontmatter?.title;
 
   if (!markdownRemark?.html || !frontmatter || !siteMetadata || !pageTitle) {
+    console.error('Something is missing in data.')
     return null;
   }
   return (
