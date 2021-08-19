@@ -4,6 +4,7 @@ import { BaseLayout } from "@Components/templates/BaseLayout";
 import { SEO } from "@Util/SEO";
 import { Query } from "@GatsbyTypes";
 import { RelatedPosts } from "@Components/molecules/RelatedPosts";
+import { pageStyle } from "./style";
 
 type PropsType = {
   data: Query;
@@ -13,21 +14,26 @@ const Post: React.FC<PropsType> = (props) => {
   const markdownRemark = props.data.markdownRemark;
   const frontmatter = markdownRemark?.frontmatter;
   const siteMetadata = props.data.site?.siteMetadata;
-  const pagetitle = frontmatter?.title;
+  const pageTitle = frontmatter?.title;
 
-  if (!markdownRemark?.html || !frontmatter || !siteMetadata || !pagetitle) {
+  if (!markdownRemark?.html || !frontmatter || !siteMetadata || !pageTitle) {
+    console.error('Something is missing in data.')
     return null;
   }
   return (
-    <BaseLayout siteMetadata={siteMetadata} pageTitle={pagetitle}>
+    <BaseLayout siteMetadata={siteMetadata} pageTitle={pageTitle}>
       <SEO
         siteMetadata={siteMetadata}
         postMeta={markdownRemark}
-        pageTitle={pagetitle}
+        pageTitle={pageTitle}
       />
-      <p>{frontmatter?.date}</p>
-      <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
-      <RelatedPosts frontmatter={frontmatter}></RelatedPosts>
+      <article css={pageStyle}>
+        <div
+          className="post-contents"
+          dangerouslySetInnerHTML={{ __html: markdownRemark.html }}
+        />
+        <RelatedPosts frontmatter={frontmatter}></RelatedPosts>
+      </article>
     </BaseLayout>
   );
 };

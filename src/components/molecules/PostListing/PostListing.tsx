@@ -1,5 +1,5 @@
 import React from "react";
-import { navigate } from "gatsby";
+import { navigate, Link } from "gatsby";
 import { MarkdownRemarkEdge } from "@GatsbyTypes";
 import { H2 } from "@Components/atoms/Typography";
 import { Badge } from "@Components/atoms/Badge";
@@ -49,11 +49,17 @@ const PostListing: React.FC<PropsType> = ({ data }) => {
             >
               <H2>{String(row.node.frontmatter?.title)}</H2>
               <p>{row.node.frontmatter?.date}</p>
-              <Badge>{row.node.frontmatter?.category}</Badge>
-              <div>
-                {row.node.frontmatter?.tags?.map((row, index) => (
-                  <Badge key={index}>{row}</Badge>
-                ))}
+              <div className="card-badge-area">
+                <Link to={`/category/${row.node.frontmatter?.category}`}>
+                  <Badge>{row.node.frontmatter?.category}</Badge>
+                </Link>
+                <div>
+                  {row.node.frontmatter?.tags?.map((row, index) => (
+                    <Link key={index} to={`/tag/${row}`}>
+                      <Badge>{row}</Badge>
+                    </Link>
+                  ))}
+                </div>
               </div>
             </Card>
           </animated.div>

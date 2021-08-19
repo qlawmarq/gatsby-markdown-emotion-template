@@ -1,5 +1,5 @@
 import { css } from "@emotion/react";
-import { colors } from "@Constants/styles";
+import { colors, breakpoints } from "@Constants/styles";
 
 export const HeaderStyle = css`
   position: relative;
@@ -14,6 +14,9 @@ export const TitleAreaStyle = css`
   height: 22rem;
   display: table;
   text-align: center;
+  @media (${breakpoints.TABLET}) {
+    height: 14rem;
+  }
 
   a {
     display: table-cell;
