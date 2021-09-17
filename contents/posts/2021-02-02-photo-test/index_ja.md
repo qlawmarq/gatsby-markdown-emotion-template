@@ -30,3 +30,5 @@ tags:
 ![PICSUM](https://picsum.photos/700/300)
 
 ![PICSUM](https://picsum.photos/300/700)
+
+![PICSUM](http://assets.rmb-ss.jp/test/sample_01.png)
