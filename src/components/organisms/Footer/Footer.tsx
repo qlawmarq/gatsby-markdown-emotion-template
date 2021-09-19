@@ -1,6 +1,6 @@
 import React from "react";
 import { NormalButton } from "@Components/atoms/Button";
-import { BaseText } from "@Components/atoms/Typography";
+import { Paragraph } from "@Components/atoms/Typography";
 import { TwitterTimeline } from "@Components/atoms/TwitterTimeline";
 import { SiteSiteMetadata } from "@GatsbyTypes";
 import { FooterStyle } from "./style";
@@ -28,7 +28,7 @@ const Footer: React.FC<FooterProps> = ({ siteMetadata }) => {
     <footer css={FooterStyle}>
       {!isTop && <NormalButton onClick={moveToTop}>Back to Top.</NormalButton>}
       {twitterId && <TwitterTimeline twitterId={twitterId} />}
-      {copyright && <BaseText>{copyright}</BaseText>}
+      {copyright && <Paragraph>{copyright}</Paragraph>}
     </footer>
   );
 };
