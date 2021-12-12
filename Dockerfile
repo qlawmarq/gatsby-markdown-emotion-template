@@ -1,4 +1,4 @@
-FROM node:14
+FROM node:17
 WORKDIR /usr/src
 COPY . ./
 EXPOSE 8000
